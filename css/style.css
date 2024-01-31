@@ -1,0 +1,108 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.control-game{
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #2195f38f;
+    width: 100%;
+    height: 100%;
+}
+.control-game span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    color: white;
+    font-size: 50px;
+    background-color: #f44336;
+    padding: 15px 25px;
+    text-align: center;
+    border-radius: 5px ;
+}
+.info-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 70px;
+    margin: 10px auto;
+    border: 1px solid #2196f3;
+    border-radius: 4px;
+    background-color: #f6f6f6;
+    width: 1080px;
+    overflow: hidden;
+    font-size: 20px;
+}
+
+.memory-game-blocks{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1100px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.memory-game-blocks.no-clicking{
+    pointer-events: none;
+}
+
+.memory-game-blocks .game-block{
+    flex:1 0 200px;
+    height: 200px;
+    margin: 0 5px 20px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.5s;
+}
+
+.memory-game-blocks img {
+    position: absolute;
+    width: 112px;
+    margin: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.memory-game-blocks .game-block .front{
+    background-color: #333;
+    line-height: 200px;
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.memory-game-blocks .game-block .back{
+    background-color: #607D8b;
+    transform: rotateY(-180deg);
+    
+}
+
+.memory-game-blocks .game-block .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+backface-visibility: hidden;/* أبحث عن الخاصية دي ...*/
+    border: 5px solid #2196f3;
+}
+
+
+.memory-game-blocks .game-block.is-flipped,
+.memory-game-blocks .game-block.has-match{
+    --webkit-transform:rotateY(180deg);
+    --moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
